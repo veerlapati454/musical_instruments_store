@@ -40,7 +40,7 @@
     /* Contact form */
     const form = $('ctForm'), count = $('count'), msg = $('message');
     const rules = {
-      name: (v) => v.trim().length >= 2 || 'Please enter your full name.',
+      name: (v) => (v.trim().length >= 2 && /^\p{L}+(?:\s+\p{L}+)*$/u.test(v.trim())) || 'Name must be at least 2 letters and contain only alphabets.',
       email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) || 'Please enter a valid email address.',
       phone: (v) => /^\+?[0-9\s-]{7,15}$/.test(v.trim()) || 'Please enter a valid phone number.',
       subject: (v) => !!v || 'Please choose a topic.',
@@ -55,6 +55,12 @@
       wrap.querySelector('.err-msg').textContent = ok ? '' : res;
       return ok;
     }
+
+    /* Name: strip digits and symbols as the user types (letters and spaces only) */
+    form.elements['name'].addEventListener('input', (e) => {
+      e.target.value = e.target.value.replace(/[^\p{L}\s]/gu, '');
+    });
+
     Object.keys(rules).forEach((n) => {
       const el = form.elements[n];
       el.addEventListener('blur', () => { touched[n] = true; check(n); });
@@ -69,11 +75,8 @@
       if (firstBad) { firstBad.focus(); toast('Please fix the highlighted fields.'); return; }
 
       const btn = $('ctSubmit'); btn.classList.add('busy'); btn.querySelector('span').textContent = 'Sending...';
-      /* TODO: replace this timeout with a real request (fetch to your backend, Formspree, EmailJS, etc.) */
-      setTimeout(() => {
-        btn.classList.remove('busy'); btn.querySelector('span').textContent = 'Send Message';
-        form.hidden = true; $('ctOk').hidden = false; toast('Message sent successfully!');
-      }, 900);
+      /* Valid form -> redirect to 404 page (no success message) */
+      setTimeout(() => { location.href = './404.html'; }, 900);
     });
     $('ctAgain').addEventListener('click', () => {
       form.reset(); count.textContent = '0 / 500';
@@ -82,7 +85,37 @@
       $('ctOk').hidden = true; form.hidden = false;
     });
 
-    /* Newsletter */
-    $('ctNews').addEventListener('submit', (e) => { e.preventDefault(); e.target.innerHTML = '<p style="font-weight:700"><i class="fa-solid fa-circle-check"></i> You are subscribed!</p>'; });
+    /* Newsletter: valid email -> straight to 404, invalid -> error message */
+    const ctNews = $('ctNews');
+    ctNews.setAttribute('novalidate', '');            // hide the browser's own popup
+
+    document.addEventListener('submit', (e) => {
+      if (e.target !== ctNews) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();                   // blocks any other submit handler
+
+      const input = ctNews.querySelector('input[type="email"]');
+      let err = ctNews.querySelector('.news-err');
+      if (!err) {
+        err = document.createElement('p');
+        err.className = 'news-err';
+        err.setAttribute('aria-live', 'polite');
+        ctNews.appendChild(err);
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(input.value.trim())) {
+        err.textContent = 'Not a valid email address.';
+        input.classList.add('invalid');
+        input.focus();
+        return;
+      }
+      location.href = './404.html';                   // valid -> redirect, no message
+    }, true);                                         // capture phase = runs first
+
+    ctNews.addEventListener('input', () => {          // clear the error while typing
+      const err = ctNews.querySelector('.news-err');
+      if (err) err.textContent = '';
+      ctNews.querySelector('input').classList.remove('invalid');
+    });
   });
 })();

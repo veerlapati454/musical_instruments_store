@@ -128,6 +128,24 @@ select.st{padding:6px 10px;border-radius:8px;border:1.5px solid var(--line);back
 .s-low{background:rgba(229,72,77,.13);color:#c2353a}.s-ok{background:rgba(47,174,102,.15);color:#1f8a4f}
 .tp li{padding:9px 0}.tp .r{display:flex;justify-content:space-between;gap:10px;font-size:.86rem}.tp .r b{white-space:nowrap}
 .strip{display:flex;align-items:center;justify-content:center;gap:8px;padding:8px;margin-bottom:6px;border-radius:8px;font-size:.7rem;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--acc);background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3)}
+/* ---- Close button alignment fix ---- */
+@media (max-width: 1024px) {
+  .x {
+    top: 35px;                 /* logo center = 22 + 4 + 27 = 53px, minus half the button (18px) */
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: grid;
+    place-items: center;       /* centers the × inside the circle */
+    line-height: 1;
+    font-size: 1rem;
+  }
+  .x i {
+    display: block;
+    line-height: 1;
+  }
+}
 </style>
 </head>
 <body>

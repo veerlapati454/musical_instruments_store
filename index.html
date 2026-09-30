@@ -55,9 +55,9 @@
           <i class="fa-solid fa-cart-shopping"></i>
           <span class="cart-badge" id="cartBadge">0</span>
         </button>
-        <button class="btn btn-login" id="loginBtn">
+        <a href="./html/login.html" class="btn btn-login" id="loginBtn">
           <i class="fa-regular fa-user"></i> <span>Login</span>
-        </button>
+        </a>
         <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -83,7 +83,7 @@
 
     </ul>
     <div class="mobile-drawer-footer">
-      <button class="btn btn-primary btn-block" id="mobileLoginBtn">Login / Register</button>
+      <a href="./html/login.html" class="btn btn-primary btn-block" id="mobileLoginBtn">Login / Register</a>
     </div>
   </div>
   <div class="drawer-overlay" id="drawerOverlay"></div>
@@ -390,7 +390,7 @@
             <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
             <p class="review-text">"Outstanding shipping speed and customer support. The virtual sound test helped me select the exact keyboard sound I needed."</p>
             <div class="reviewer">
-              <img src="./assets/10" alt="David Miller">
+              <img src="./assets/m10.webp" alt="David Miller">
               <div>
                 <h5>David Miller</h5>
                 <span>Music Producer</span>
@@ -573,6 +573,21 @@
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="./js/script.js"></script>
+  <script src="./js/script.js?v=2"></script>
+  <script>
+  /* Login buttons: always go to login.html (self-contained, no cache issues) */
+  (function () {
+    var LOGIN = './html/login.html';
+    function go(e) {
+      var t = e.target.closest && e.target.closest('#loginBtn, #mobileLoginBtn');
+      if (!t) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      window.location.href = LOGIN;
+    }
+    document.addEventListener('click', go, true);
+    document.addEventListener('touchend', go, true);
+  })();
+</script>
 </body>
 </html>

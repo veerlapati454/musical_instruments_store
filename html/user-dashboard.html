@@ -115,6 +115,24 @@ tbody tr:hover{background:rgba(124,58,237,.05)}
   .burger{width:42px;height:42px;border:0;color:#fff;font-size:1.05rem;background:linear-gradient(135deg,var(--p),var(--p2));box-shadow:0 8px 16px -8px rgba(124,58,237,.9);transition:transform .2s}
   .burger:active{transform:scale(.93)}
 }
+/* ---- Close button alignment fix ---- */
+@media (max-width: 1024px) {
+  .x {
+    top: 35px;                 /* logo center = 22 + 4 + 27 = 53px, minus half the button (18px) */
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: grid;
+    place-items: center;       /* centers the × inside the circle */
+    line-height: 1;
+    font-size: 1rem;
+  }
+  .x i {
+    display: block;
+    line-height: 1;
+  }
+}
 </style>
 </head>
 <body>

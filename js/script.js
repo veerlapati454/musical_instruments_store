@@ -21,15 +21,20 @@
 
 /* ===== LOGIN REDIRECT (works for <button> or <a>, desktop and mobile) ===== */
 (function () {
-  const scriptTag = document.currentScript || document.querySelector('script[src$="script.js"]');
-  const LOGIN_URL = new URL('../html/login.html', scriptTag.src).href; // script is in /js/
-  document.addEventListener('click', function (e) {
-    const target = e.target.closest('#loginBtn, #mobileLoginBtn');
+  /* Pages inside /html/ use ./login.html, the home page uses ./html/login.html */
+  const inHtmlFolder = /\/html\/[^\/]*$/.test(location.pathname);
+  const LOGIN_URL = inHtmlFolder ? './login.html' : './html/login.html';
+
+  function goLogin(e) {
+    const target = e.target.closest && e.target.closest('#loginBtn, #mobileLoginBtn');
     if (!target) return;
     e.preventDefault();
-    e.stopPropagation(); // blocks the old popup handlers below
+    e.stopPropagation();
+    e.stopImmediatePropagation(); // blocks the old popup handlers below
     window.location.href = LOGIN_URL;
-  }, true);
+  }
+  /* capture phase = runs before any other click handler */
+  document.addEventListener('click', goLogin, true);
 })();
 
 /* Always open at the very top */

@@ -75,7 +75,38 @@
       }
     }));
 
-    $('dlForm').addEventListener('submit', (e) => { e.preventDefault(); e.target.innerHTML = '<p style="font-weight:700"><i class="fa-solid fa-circle-check"></i> You are on the list!</p>'; });
+    /* Notify Me form: valid email -> straight to 404, invalid -> error message */
+const dlForm = $('dlForm');
+dlForm.setAttribute('novalidate', '');            // hide the browser's own popup
+
+document.addEventListener('submit', (e) => {
+  if (e.target !== dlForm) return;
+  e.preventDefault();
+  e.stopImmediatePropagation();                   // blocks any other submit handler
+
+  const input = dlForm.querySelector('input[type="email"]');
+  let err = dlForm.querySelector('.news-err');
+  if (!err) {
+    err = document.createElement('p');
+    err.className = 'news-err';
+    err.setAttribute('aria-live', 'polite');
+    dlForm.appendChild(err);
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(input.value.trim())) {
+    err.textContent = 'Not a valid email address.';
+    input.classList.add('invalid');
+    input.focus();
+    return;
+  }
+  location.href = './404.html';                   // valid -> redirect, no message
+}, true);                                         // capture phase = runs first
+
+dlForm.addEventListener('input', () => {          // clear the error while typing
+  const err = dlForm.querySelector('.news-err');
+  if (err) err.textContent = '';
+  dlForm.querySelector('input').classList.remove('invalid');
+});
 
     /* ---------- GSAP ---------- */
     if (!window.gsap || !window.ScrollTrigger) return;

@@ -534,3 +534,68 @@ html, body { max-width: 100%; overflow-x: hidden; }
 .modal-overlay { height: 100vh; height: 100dvh; overflow-y: auto; }
 .modal-card { margin: auto; }
 body.modal-open { overflow: hidden; }
+.review-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-text {
+  flex: 1;            /* text grows, pushing the reviewer to the bottom */
+}
+
+.reviewer {
+  margin-top: auto;   /* keeps both reviewer rows on the same line */
+}
+/* ===== Uniform product card alignment ===== */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;                 /* equal-height cards within each grid row */
+}
+
+/* Fixed image area so every card's content starts at the same y */
+.product-card .product-img {    /* your image wrapper */
+  flex: 0 0 auto;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.product-card .product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Info block fills the remaining height */
+.product-card .product-info {   /* the wrapper around rating, title, price, button */
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+/* Reserve two lines so 1-line and 2-line titles take the same space */
+.product-card .product-title {
+  min-height: calc(2 * 1.35em);
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Button always pinned to the bottom of the card */
+.product-card .add-to-cart {    /* your Add to Cart button */
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Keep the "You save" line from shifting the layout (deals page) */
+.product-card .save {
+  margin: 0 0 14px;
+  min-height: 1.2em;
+}
+/* Mobile browsers: keep the drawer's bottom button above the browser toolbar */
+.mobile-drawer { height: 100vh; height: 100dvh; }
+.mobile-drawer-footer { padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px)); }
+/* Invisible toast must never block taps on things underneath it */
+.toast { pointer-events: none; }

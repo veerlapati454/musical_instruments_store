@@ -98,3 +98,5 @@ html, body { overflow-x: clip; max-width: 100%; }
 }
 @media (max-width: 480px) { .pr-hero h1 { font-size: 1.8rem; } .pr-track span { font-size: 1.1rem; padding: 0 22px; } .pr-grid { gap: 20px; } }
 @media (prefers-reduced-motion: reduce) { .pr-track, .pr-fl, .pr-seal, .pr-hero::after { animation: none; } .reveal { opacity: 1; transform: none; transition: none; } }
+.news-err { flex: 1 1 100%; min-height: 1.1em; margin: 2px 0 0; font-size: .85rem; font-weight: 600; color: #FFD1D9; }
+.pr-news input.invalid { box-shadow: 0 0 0 3px rgba(225, 29, 72, .6); }
