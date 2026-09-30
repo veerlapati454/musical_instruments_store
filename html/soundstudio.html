@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sound Studio - Stackly Musical Instruments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/soundstudio.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="../index.html" class="logo"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a>
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="./categories.html" class="nav-link">Categories</a></li>
+          <li class="nav-item"><a href="./products.html" class="nav-link">Products</a></li>
+          <li class="nav-item"><a href="./soundstudio.html" class="nav-link active">Sound Studio</a></li>
+          <li class="nav-item"><a href="./deals.html" class="nav-link">Deals</a></li>
+          <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="View Shopping Cart"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge" id="cartBadge">0</span></button>
+        <button class="btn btn-login" id="loginBtn"><i class="fa-regular fa-user"></i> <span>Login</span></button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <a href="../index.html" class="logo"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a>
+      <button class="close-drawer" id="closeDrawer">&times;</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="../index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="./categories.html" class="mobile-nav-link">Categories</a></li>
+      <li><a href="./products.html" class="mobile-nav-link">Products</a></li>
+      <li><a href="./soundstudio.html" class="mobile-nav-link active">Sound Studio</a></li>
+      <li><a href="./deals.html" class="mobile-nav-link">Deals</a></li>
+      <li><a href="./contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer"><button class="btn btn-primary btn-block" id="mobileLoginBtn">Login / Register</button></div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <main>
+    <!-- 1. HERO -->
+    <section class="ss-hero">
+      <canvas id="viz" aria-hidden="true"></canvas>
+      <div class="container ss-hero-in">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Sound Studio</span></nav>
+        <h1>Hear It Before You Buy It</h1>
+        <p>Play a piano, tap drum pads and build a beat right in your browser. Turn your sound up.</p>
+        <a href="#piano" class="btn btn-light" id="startBtn"><i class="fa-solid fa-play"></i> Start Playing</a>
+      </div>
+    </section>
+
+    <!-- 2. PIANO -->
+    <section class="section" id="piano">
+      <div class="container">
+        <div class="section-header"><span class="section-subtitle">Play</span><h2 class="section-title">Virtual Keyboard</h2><p class="section-desc">Tap the keys, or use A S D F G H J K and W E T Y U on your keyboard.</p></div>
+        <div class="ss-tones" id="tones">
+          <button class="tone active" data-inst="piano"><i class="fa-solid fa-music"></i> Piano</button>
+          <button class="tone" data-inst="synth"><i class="fa-solid fa-bolt"></i> Synth</button>
+          <button class="tone" data-inst="organ"><i class="fa-solid fa-church"></i> Organ</button>
+          <button class="tone" data-inst="pluck"><i class="fa-solid fa-guitar"></i> Guitar</button>
+        </div>
+        <div class="ss-piano" id="piano-keys"></div>
+      </div>
+    </section>
+
+    <!-- 3. DRUM PADS -->
+    <section class="section ss-dark" id="pads">
+      <div class="container">
+        <div class="section-header"><span class="section-subtitle">Tap</span><h2 class="section-title">Drum Pads</h2><p class="section-desc">Hit the pads or press 1 to 8 on your keyboard.</p></div>
+        <div class="ss-pads" id="padGrid"></div>
+      </div>
+    </section>
+
+    <!-- 4. SEQUENCER -->
+    <section class="section" id="seq">
+      <div class="container">
+        <div class="section-header"><span class="section-subtitle">Build</span><h2 class="section-title">Beat Maker</h2><p class="section-desc">Switch steps on, press play and change the tempo.</p></div>
+        <div class="ss-seq">
+          <div class="ss-ctl"><button class="btn btn-primary" id="seqPlay"><i class="fa-solid fa-play"></i> <span>Play</span></button>
+            <label>Tempo <b id="bpmVal">110</b> BPM<input type="range" id="bpm" min="70" max="180" value="110"></label>
+            <button class="btn btn-outline" id="seqClear">Clear</button></div>
+          <div class="ss-grid" id="seqGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FLIP CARDS (GSAP scroll) -->
+    <section class="section ss-flips" id="families">
+      <div class="container">
+        <div class="section-header"><span class="section-subtitle">Explore</span><h2 class="section-title">Sound Families</h2><p class="section-desc">Scroll down and watch each card turn over.</p></div>
+        <div class="fc-grid">
+          <div class="fc"><div class="fc-in"><div class="fc-f"><i class="fa-solid fa-guitar"></i><h3>Strings</h3><p>Warm and organic</p></div><div class="fc-b"><h3>Strings</h3><p>Guitars, violins and basses give bright, resonant tone shaped by the wood and the player.</p><button class="btn btn-light fc-try" data-inst="pluck">Try the sound</button></div></div></div>
+          <div class="fc"><div class="fc-in"><div class="fc-f"><i class="fa-solid fa-sliders"></i><h3>Keys</h3><p>Clear and versatile</p></div><div class="fc-b"><h3>Keys</h3><p>Pianos and stage keyboards cover everything from soft ballads to full band parts.</p><button class="btn btn-light fc-try" data-inst="piano">Try the sound</button></div></div></div>
+          <div class="fc"><div class="fc-in"><div class="fc-f"><i class="fa-solid fa-bolt"></i><h3>Synths</h3><p>Bold and electric</p></div><div class="fc-b"><h3>Synths</h3><p>Synthesizers build new sounds from waves, filters and effects. Great for pop and electronic music.</p><button class="btn btn-light fc-try" data-inst="synth">Try the sound</button></div></div></div>
+          <div class="fc"><div class="fc-in"><div class="fc-f"><i class="fa-solid fa-church"></i><h3>Organs</h3><p>Rich and sustained</p></div><div class="fc-b"><h3>Organs</h3><p>Organs hold every note as long as you play it, adding depth to gospel, rock and jazz.</p><button class="btn btn-light fc-try" data-inst="organ">Try the sound</button></div></div></div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. GEAR MATCH -->
+    <section class="section" id="gear">
+      <div class="container">
+        <div class="section-header"><span class="section-subtitle">Like What You Hear?</span><h2 class="section-title">Take the Sound Home</h2></div>
+        <div class="ss-gear">
+          <a href="./products.html" class="gear-card"><i class="fa-solid fa-sliders"></i><h4>Pro 88-Key Stage Keyboard</h4><p>Weighted keys and layered patches.</p><b>$1,249.00</b></a>
+          <a href="./products.html" class="gear-card"><i class="fa-solid fa-drum"></i><h4>Master Custom Drum Kit</h4><p>Punchy birch shells, stage ready.</p><b>$1,599.00</b></a>
+          <a href="./products.html" class="gear-card"><i class="fa-solid fa-guitar"></i><h4>Aura Deluxe Acoustic Guitar</h4><p>Resonant tone, set up for you.</p><b>$799.00</b></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. TIPS -->
+    <section class="section ss-tips">
+      <div class="container">
+        <div class="section-header"><span class="section-subtitle">Listen Better</span><h2 class="section-title">Get the Most From the Studio</h2></div>
+        <div class="ss-tipgrid">
+          <div><i class="fa-solid fa-headphones"></i><h4>Use headphones</h4><p>Bass and detail come through much clearer.</p></div>
+          <div><i class="fa-solid fa-volume-high"></i><h4>Check your volume</h4><p>Start low, then raise it to a comfortable level.</p></div>
+          <div><i class="fa-solid fa-keyboard"></i><h4>Try your keyboard</h4><p>On desktop, keys work like a real piano.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FAQ -->
+    <section class="section">
+      <div class="container ss-faq">
+        <div class="section-header"><span class="section-subtitle">Good to Know</span><h2 class="section-title">Studio Questions</h2></div>
+        <details class="faq" open><summary>Why don't I hear anything?</summary><p>Browsers wait for a tap before playing audio. Tap any key or pad once and check your device volume is on.</p></details>
+        <details class="faq"><summary>Are these the real instrument sounds?</summary><p>They are simple synthesized previews. Real instruments sound richer, which is why we set up and test each one.</p></details>
+        <details class="faq"><summary>Can I play in the shop instead?</summary><p>Yes. Visit our Salem store, open Monday to Saturday, and try any instrument in person.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <!-- CTA -->
+  <section class="cta" id="cta">
+    <div class="container"><div class="cta-inner">
+      <div class="cta-content"><span class="cta-badge">Ready to Play?</span><h2>Found Your Sound? Bring It Home</h2><p>Free express delivery over $99, a 2-year warranty and 30-day returns.</p></div>
+      <div class="cta-actions"><a href="./products.html" class="btn btn-light">Shop Instruments <i class="fa-solid fa-arrow-right"></i></a><a href="./categories.html" class="btn btn-ghost">Browse Categories</a></div>
+    </div></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo footer-logo"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a>
+          <p class="footer-text">Your one-stop shop for guitars, keyboards, drums and studio gear.</p>
+          <div class="social-links">
+            <a href="./404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="./404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="./404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="./404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Shop by Category</h4>
+          <ul class="footer-links">
+            <li><a href="./404.html">Guitars &amp; Basses</a></li>
+            <li><a href="./404.html">Keyboards &amp; Synths</a></li>
+            <li><a href="./404.html">Drums &amp; Percussion</a></li>
+            <li><a href="./404.html">Studio Gear</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./categories.html">Categories</a></li>
+            <li><a href="./products.html">Products</a></li>
+            <li><a href="./soundstudio.html">Sound Studio</a></li>
+            <li><a href="./deals.html">Deals</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Visit Us</h4>
+          <p class="footer-address">MMR Complex, Periyakollappatty<br>Chinna Thirupathi, Salem,<br>Tamil Nadu 636008<br>Open Mon&ndash;Sat, 8:00 AM &ndash; 6:00 PM</p>
+          <p class="footer-address"><a href="./404.html">+91 40 6677 8899</a><br><a href="./404.html">support@stackly.com</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 Stackly. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal-card">
+      <button class="modal-close" id="closeLoginModal">&times;</button>
+      <div class="modal-header"><h3 id="modalTitle">Welcome Back</h3><p id="modalSubtitle">Please log in to your Stackly account</p></div>
+      <form id="authForm" class="auth-form">
+        <div class="form-group" id="nameGroup" style="display:none;"><label for="fullName">Full Name</label><div class="input-icon-wrapper"><i class="fa-regular fa-user"></i><input type="text" id="fullName" placeholder="John Doe"></div></div>
+        <div class="form-group"><label for="emailInput">Email Address</label><div class="input-icon-wrapper"><i class="fa-regular fa-envelope"></i><input type="email" id="emailInput" placeholder="name@example.com" required></div></div>
+        <div class="form-group"><label for="passwordInput">Password</label><div class="input-icon-wrapper"><i class="fa-solid fa-lock"></i><input type="password" id="passwordInput" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required></div></div>
+        <button type="submit" class="btn btn-primary btn-block" id="authSubmitBtn">Log In</button>
+      </form>
+      <div class="modal-footer"><span id="toggleAuthText">Don't have an account?</span> <button type="button" id="toggleAuthMode" class="btn-link">Register Now</button></div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header"><h3>Your Cart (<span id="cartCount">0</span>)</h3><button class="close-cart" id="closeCart">&times;</button></div>
+    <div class="cart-items" id="cartItemsContainer"><div class="empty-cart-msg">Your shopping cart is currently empty.</div></div>
+    <div class="cart-footer"><div class="cart-total"><span>Total:</span><strong id="cartTotalPrice">$0.00</strong></div><a href="./404.html" class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</a>
+  </div>
+
+  <div class="toast" id="toast">Item added to cart!</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/soundstudio.js"></script>
+</body>
+</html>

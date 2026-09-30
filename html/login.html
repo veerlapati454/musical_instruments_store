@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - Stackly Music</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+  <div class="lg">
+
+    <!-- BRAND PANEL -->
+    <aside class="lg-brand" id="brandPanel">
+      <div class="staff" aria-hidden="true"></div>
+      <div class="notes" aria-hidden="true">
+        <i class="note n1 fa-solid fa-music" data-depth="20"></i>
+        <i class="note n2 fa-solid fa-guitar" data-depth="30"></i>
+        <i class="note n3 fa-solid fa-drum" data-depth="15"></i>
+        <i class="note n4 fa-solid fa-headphones" data-depth="25"></i>
+        <i class="note n5 fa-solid fa-microphone-lines" data-depth="18"></i>
+      </div>
+      <div class="vinyl" aria-hidden="true"></div>
+
+      <a href="../index.html" class="lg-logo" aria-label="Stackly home">
+        <img src="../assets/stackly_logo.webp" alt="Stackly">
+      </a>
+
+      <div class="lg-brand-body">
+        <span class="tag"><i class="fa-solid fa-music"></i> Stackly Music</span>
+        <h1>
+          <span class="ln"><span>Welcome back,</span></span>
+          <span class="ln"><span>keep the music playing.</span></span>
+        </h1>
+        <p>Sign in to track orders, save your favourite gear and get early access to exclusive deals.</p>
+        <ul class="perks">
+          <li><i class="fa-solid fa-truck-fast"></i> Free express delivery over $99</li>
+          <li><i class="fa-solid fa-shield-halved"></i> 2-year warranty on every instrument</li>
+          <li><i class="fa-solid fa-headset"></i> Advice from real musicians</li>
+        </ul>
+      </div>
+
+      <div class="lg-foot">
+        <div class="lg-stats">
+          <div><b>10k+</b><span>Instruments</span></div>
+          <div><b>4.9</b><span>Average rating</span></div>
+          <div><b>24h</b><span>Express shipping</span></div>
+        </div>
+        <div class="eq" aria-hidden="true"></div>
+      </div>
+    </aside>
+
+    <!-- FORM -->
+    <main class="lg-form-wrap">
+      <div class="lg-card">
+        <a href="../index.html" class="back"><i class="fa-solid fa-arrow-left"></i> Back to shop</a>
+        <span class="eyebrow" id="eyebrow">Secure sign in</span>
+        <h2>Log in</h2>
+        <p class="sub">Enter your details to access your Stackly account.</p>
+
+        <form id="loginForm" novalidate>
+          <fieldset class="role">
+            <legend>Sign in as</legend>
+            <div class="seg">
+              <span class="thumb" aria-hidden="true"></span>
+              <label><input type="radio" name="role" value="user" checked><span><i class="fa-regular fa-user"></i> Customer</span></label>
+              <label><input type="radio" name="role" value="admin"><span><i class="fa-solid fa-user-shield"></i> Admin</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <i class="lead fa-regular fa-envelope"></i>
+            <input type="email" id="email" placeholder=" " autocomplete="email" required>
+            <label for="email">Email address</label>
+            <small class="hint" data-for="email">Use your @gmail.com address</small>
+          </div>
+
+          <div class="field">
+            <i class="lead fa-solid fa-lock"></i>
+            <input type="password" id="password" placeholder=" " autocomplete="current-password" required>
+            <label for="password">Password</label>
+            <button type="button" class="eye" aria-label="Show password"><i class="fa-solid fa-eye"></i></button>
+            <small class="hint" data-for="password">At least 6 characters</small>
+            <small class="caps" id="capsWarn" hidden><i class="fa-solid fa-triangle-exclamation"></i> Caps Lock is on</small>
+          </div>
+
+          <div class="row">
+            <label class="remember"><input type="checkbox" id="rememberMe"> Remember me</label>
+            <a href="./404.html" class="forgot">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn" id="loginBtn">
+            <span class="lbl">Log In <i class="fa-solid fa-arrow-right"></i></span>
+            <span class="spin" aria-hidden="true"></span>
+            <span class="done"><i class="fa-solid fa-check"></i> Welcome back!</span>
+          </button>
+        </form>
+
+        <p class="signup">New to Stackly? <a href="./signup.html">Create an account</a></p>
+        <div class="secure"><i class="fa-solid fa-lock"></i> Your information is encrypted and secure</div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="../js/login.js"></script>
+</body>
+</html>

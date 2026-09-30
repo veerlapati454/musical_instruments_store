@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found - Stackly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root { --primary:#7C3AED; --primary-hover:#6D28D9; --secondary:#150F2E; --accent:#FBBF24; --muted:#B9B3DC; --ease:cubic-bezier(.16,1,.3,1); }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { max-width:100%; overflow-x:clip; }
+    body { min-height:100vh; min-height:100dvh; display:flex; flex-direction:column; font-family:'Plus Jakarta Sans',sans-serif; color:#fff; line-height:1.6;
+      background: radial-gradient(circle at 15% 10%, rgba(124,58,237,.45), transparent 45%), radial-gradient(circle at 90% 100%, rgba(251,191,36,.16), transparent 40%), var(--secondary); position:relative; }
+    a { color:inherit; text-decoration:none; }
+    :focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+
+    /* cursor glow */
+    .glow { position:fixed; left:0; top:0; width:420px; height:420px; margin:-210px 0 0 -210px; border-radius:50%; pointer-events:none; z-index:0;
+      background:radial-gradient(circle, rgba(124,58,237,.35), transparent 65%); transform:translate(var(--gx,50vw), var(--gy,40vh)); transition:transform .25s ease-out; }
+
+    /* floating instruments */
+    .fl { position:fixed; z-index:0; color:rgba(255,255,255,.09); pointer-events:none; transition:transform .4s ease-out; }
+    .fl i { display:block; animation:float 7s ease-in-out infinite; }
+    .fl.a { top:14%; left:6%; font-size:3rem; } .fl.b { top:60%; left:10%; font-size:2.4rem; } .fl.c { top:18%; right:8%; font-size:3.4rem; }
+    .fl.d { bottom:16%; right:12%; font-size:2.6rem; } .fl.e { top:42%; right:3%; font-size:2rem; } .fl.f { bottom:10%; left:34%; font-size:2.2rem; }
+    .fl.b i { animation-delay:1.2s; } .fl.c i { animation-delay:2.4s; } .fl.d i { animation-delay:3.6s; } .fl.e i { animation-delay:4.4s; } .fl.f i { animation-delay:5.2s; }
+    @keyframes float { 50% { transform:translateY(-18px) rotate(10deg); } }
+
+    header { position:relative; z-index:2; display:flex; justify-content:center; padding:14px 20px; }
+    .logo-img { height:72px; width:auto; display:block; margin:-12px 0; }
+
+    main { position:relative; z-index:1; flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:20px 20px 40px; }
+
+    /* 4 [record] 4 */
+    .code { display:flex; align-items:center; justify-content:center; gap:clamp(4px,2vw,20px); font:700 clamp(5rem,20vw,11rem)/1 'Playfair Display',serif; }
+    .code .n { background:linear-gradient(180deg,#fff,#B9A2F5); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 10px 30px rgba(124,58,237,.5)); animation:drop .9s var(--ease) both; }
+    .code .n:last-child { animation-delay:.15s; }
+    @keyframes drop { from { opacity:0; transform:translateY(-60px) rotate(-6deg); } }
+
+    .vinyl { position:relative; width:clamp(4.6rem,18vw,10rem); aspect-ratio:1; border:0; border-radius:50%; cursor:pointer; padding:0; flex:0 0 auto;
+      background:radial-gradient(circle, transparent 0 22%, #000 22% 24%, #1b1440 24% 27%, #000 27% 30%, #1b1440 30% 34%, #000 34% 38%, #1b1440 38% 43%, #000 43% 48%, #1b1440 48% 55%, #000 55%),
+                 conic-gradient(from 0deg, rgba(255,255,255,.18), transparent 25%, rgba(255,255,255,.14) 50%, transparent 75%, rgba(255,255,255,.18));
+      background-blend-mode:screen; box-shadow:0 0 0 3px rgba(255,255,255,.1), 0 20px 50px rgba(0,0,0,.6), 0 0 60px rgba(124,58,237,.5);
+      animation:spin 4s linear infinite, drop .9s var(--ease) .08s both; transition:box-shadow .3s; }
+    .vinyl::before { content:'\f001'; font-family:'Font Awesome 6 Free'; font-weight:900; position:absolute; inset:34%; border-radius:50%; display:grid; place-items:center;
+      background:linear-gradient(135deg,var(--primary),#A855F7); color:var(--accent); font-size:clamp(.8rem,3vw,1.7rem); }
+    .vinyl::after { content:''; position:absolute; left:50%; top:50%; width:7%; height:7%; margin:-3.5% 0 0 -3.5%; border-radius:50%; background:var(--secondary); }
+    .vinyl:hover { box-shadow:0 0 0 3px var(--accent), 0 20px 50px rgba(0,0,0,.6), 0 0 80px rgba(251,191,36,.5); }
+    .vinyl.wobble { animation:spin 1.2s linear infinite, shake .5s; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    @keyframes shake { 20% { translate:-6px 0; } 40% { translate:6px 0; } 60% { translate:-4px 0; } 80% { translate:4px 0; } }
+
+    h1 { font:700 clamp(1.7rem,5vw,2.8rem)/1.2 'Playfair Display',serif; margin-top:10px; animation:up .8s var(--ease) .3s both; }
+    .msg { max-width:520px; margin:12px auto 0; color:var(--muted); animation:up .8s var(--ease) .45s both; }
+    .hint { margin-top:6px; font-size:.8rem; color:#8B84B8; animation:up .8s var(--ease) .55s both; }
+    @keyframes up { from { opacity:0; transform:translateY(24px); } }
+
+    .eq { display:flex; align-items:flex-end; justify-content:center; gap:5px; height:38px; margin:24px 0; animation:up .8s var(--ease) .5s both; }
+    .eq span { width:6px; height:20%; border-radius:3px; background:linear-gradient(to top,var(--primary),var(--accent)); animation:eq 1.2s ease-in-out infinite; }
+    .eq span:nth-child(2n) { animation-delay:.15s; } .eq span:nth-child(3n) { animation-delay:.4s; } .eq span:nth-child(5n) { animation-delay:.7s; }
+    @keyframes eq { 0%,100% { height:15%; } 50% { height:100%; } }
+
+    .actions { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; animation:up .8s var(--ease) .65s both; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:14px 30px; border-radius:8px; border:2px solid transparent; font:700 1rem 'Plus Jakarta Sans',sans-serif; cursor:pointer; transition:all .3s var(--ease); }
+    .btn-back { background:transparent; color:#fff; border-color:rgba(255,255,255,.4); }
+    .btn-back:hover { background:#fff; color:var(--secondary); transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,.3); }
+    .btn-back:hover i { transform:translateX(-4px); }
+    .btn-home { background:var(--primary); color:#fff; box-shadow:0 8px 22px rgba(124,58,237,.45); }
+    .btn-home:hover { background:var(--primary-hover); transform:translateY(-3px); box-shadow:0 14px 30px rgba(124,58,237,.6); }
+    .btn i { transition:transform .3s var(--ease); }
+
+    .links { display:flex; flex-wrap:wrap; justify-content:center; gap:8px 22px; margin-top:34px; font-size:.9rem; animation:up .8s var(--ease) .8s both; }
+    .links span { color:#8B84B8; }
+    .links a { color:var(--muted); font-weight:600; position:relative; transition:color .3s; }
+    .links a::after { content:''; position:absolute; left:0; bottom:-3px; width:0; height:2px; background:var(--accent); transition:width .3s var(--ease); }
+    .links a:hover { color:var(--accent); } .links a:hover::after { width:100%; }
+
+    footer { position:relative; z-index:1; text-align:center; padding:18px 20px; font-size:.82rem; color:#8B84B8; border-top:1px solid rgba(255,255,255,.08); }
+
+    @media (max-width:480px) { .logo-img { height:64px; } .btn { flex:1 1 100%; } .fl { opacity:.6; } .glow { display:none; } }
+    @media (prefers-reduced-motion:reduce) { *, *::before, *::after { animation:none !important; transition:none !important; } }
+  </style>
+</head>
+<body>
+  <div class="glow" id="glow" aria-hidden="true"></div>
+  <span class="fl a" data-d="18" aria-hidden="true"><i class="fa-solid fa-guitar"></i></span>
+  <span class="fl b" data-d="-26" aria-hidden="true"><i class="fa-solid fa-drum"></i></span>
+  <span class="fl c" data-d="30" aria-hidden="true"><i class="fa-solid fa-music"></i></span>
+  <span class="fl d" data-d="-20" aria-hidden="true"><i class="fa-solid fa-microphone-lines"></i></span>
+  <span class="fl e" data-d="24" aria-hidden="true"><i class="fa-solid fa-headphones"></i></span>
+  <span class="fl f" data-d="-14" aria-hidden="true"><i class="fa-solid fa-sliders"></i></span>
+
+  <header><a href="../index.html" aria-label="Stackly home"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a></header>
+
+  <main>
+    <div class="code" role="img" aria-label="Error 404">
+      <span class="n">4</span>
+      <button class="vinyl" id="vinyl" aria-label="Play a sad note"></button>
+      <span class="n">4</span>
+    </div>
+    <h1>Oops, this page is off key</h1>
+    <p class="msg">The page you are looking for has moved, been renamed or never existed. Head back or return to the shop and keep playing.</p>
+    <p class="hint">Tip: tap the record.</p>
+
+    <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+    <div class="actions">
+      <button type="button" class="btn btn-back" id="backBtn"><i class="fa-solid fa-arrow-left"></i> Go Back</button>
+      <a href="../index.html" class="btn btn-home"><i class="fa-solid fa-house"></i> Go Home</a>
+    </div>
+
+    <nav class="links" aria-label="Helpful links">
+      <span>Or visit:</span>
+      <a href="./categories.html">Categories</a>
+      <a href="./products.html">Products</a>
+      <a href="./soundstudio.html">Sound Studio</a>
+      <a href="./deals.html">Deals</a>
+    </nav>
+  </main>
+
+  <footer>&copy; 2026 Stackly. All rights reserved.</footer>
+
+  <script>
+    /* Go Back: exactly one step back in history; if there is none, go home */
+    document.getElementById('backBtn').addEventListener('click', function () {
+      if (window.history.length > 1) window.history.back();
+      else window.location.href = '../index.html';
+    });
+
+    /* Cursor glow + icon parallax (pointer devices only) */
+    var glow = document.getElementById('glow'), icons = document.querySelectorAll('.fl');
+    if (window.matchMedia('(hover: hover)').matches) {
+      window.addEventListener('pointermove', function (e) {
+        glow.style.setProperty('--gx', e.clientX + 'px'); glow.style.setProperty('--gy', e.clientY + 'px');
+        var x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+        icons.forEach(function (el) { var d = +el.dataset.d; el.style.transform = 'translate(' + x * d + 'px,' + y * d + 'px)'; });
+      });
+    }
+
+    /* Tap the record: a sad descending "wrong note" */
+    var vinyl = document.getElementById('vinyl'), ctx;
+    vinyl.addEventListener('click', function () {
+      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+      if (ctx.state === 'suspended') ctx.resume();
+      [392, 349.23, 311.13, 261.63].forEach(function (f, i) {
+        var t = ctx.currentTime + i * .28, o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = 'triangle'; o.frequency.setValueAtTime(f, t);
+        g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.25, t + .03); g.gain.exponentialRampToValueAtTime(.001, t + .5);
+        o.connect(g); g.connect(ctx.destination); o.start(t); o.stop(t + .55);
+      });
+      vinyl.classList.remove('wobble'); void vinyl.offsetWidth; vinyl.classList.add('wobble');
+      setTimeout(function () { vinyl.classList.remove('wobble'); }, 1300);
+    });
+  </script>
+</body>
+</html>

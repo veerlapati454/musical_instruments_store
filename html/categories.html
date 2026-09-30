@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories - Stackly Musical Instruments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/categories.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="../index.html" class="logo"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a>
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="./categories.html" class="nav-link active">Categories</a></li>
+          <li class="nav-item"><a href="./products.html" class="nav-link">Products</a></li>
+          <li class="nav-item"><a href="./soundstudio.html" class="nav-link">Sound Studio</a></li>
+          <li class="nav-item"><a href="./deals.html" class="nav-link">Deals</a></li>
+          <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="View Shopping Cart"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge" id="cartBadge">0</span></button>
+        <button class="btn btn-login" id="loginBtn"><i class="fa-regular fa-user"></i> <span>Login</span></button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <a href="../index.html" class="logo"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a>
+      <button class="close-drawer" id="closeDrawer">&times;</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="../index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="./categories.html" class="mobile-nav-link active">Categories</a></li>
+      <li><a href="./products.html" class="mobile-nav-link">Products</a></li>
+      <li><a href="./soundstudio.html" class="mobile-nav-link">Sound Studio</a></li>
+      <li><a href="./deals.html" class="mobile-nav-link">Deals</a></li>
+      <li><a href="./contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer"><button class="btn btn-primary btn-block" id="mobileLoginBtn">Login / Register</button></div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <main>
+    <!-- 1. PAGE HERO -->
+    <section class="cx-hero">
+      <i class="fa-solid fa-music cx-note n1"></i><i class="fa-solid fa-guitar cx-note n2"></i><i class="fa-solid fa-drum cx-note n3"></i><i class="fa-solid fa-microphone-lines cx-note n4"></i>
+      <div class="container cx-hero-inner">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Categories</span></nav>
+        <h1>Every Sound Starts With the Right Instrument</h1>
+        <p>Browse six hand-picked families of instruments and studio gear, from first guitars to full recording setups.</p>
+        <div class="cx-eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+    </section>
+
+    <!-- 2. FILTER BAR (full width, sticky) -->
+    <section class="cx-filter" aria-label="Filter categories">
+      <div class="cx-filter-row" id="filters">
+        <button class="chip active" data-filter="all" style="--img:url('')"><i class="fa-solid fa-music"></i><span>All</span></button>
+        <button class="chip" data-filter="strings" style="--img:url('')"><i class="fa-solid fa-guitar"></i><span>Strings</span></button>
+        <button class="chip" data-filter="keys" style="--img:url('')"><i class="fa-solid fa-sliders"></i><span>Keys</span></button>
+        <button class="chip" data-filter="percussion" style="--img:url('')"><i class="fa-solid fa-drum"></i><span>Percussion</span></button>
+        <button class="chip" data-filter="studio" style="--img:url('')"><i class="fa-solid fa-microphone-lines"></i><span>Studio</span></button>
+      </div>
+    </section>
+
+    <!-- 3. CATEGORY GRID (6 images) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Curated Collection</span>
+          <h2 class="section-title">Shop by Category</h2>
+          <p class="section-desc">Pick a family and dive into models chosen by working musicians.</p>
+        </div>
+        <div class="cx-grid" id="cxGrid">
+          <a href="./products.html" class="cx-card reveal" data-cat="strings">
+            <img src="../assets/m16.webp" alt="Acoustic guitar" loading="lazy">
+            <div class="cx-overlay"><span class="cx-count">120+ items</span><h3>Acoustic Guitars</h3><p>Warm tonewoods for songwriters and stage players.</p><span class="cx-go">Browse <i class="fa-solid fa-arrow-right"></i></span></div>
+          </a>
+          <a href="./products.html" class="cx-card reveal" data-cat="strings">
+            <img src="../assets/m17.webp" alt="Electric guitar" loading="lazy">
+            <div class="cx-overlay"><span class="cx-count">95+ items</span><h3>Electric Guitars &amp; Basses</h3><p>Sunbursts, solid bodies and deep-groove basses.</p><span class="cx-go">Browse <i class="fa-solid fa-arrow-right"></i></span></div>
+          </a>
+          <a href="./products.html" class="cx-card reveal" data-cat="keys">
+            <img src="../assets/m18.webp" alt="Stage keyboard" loading="lazy">
+            <div class="cx-overlay"><span class="cx-count">80+ items</span><h3>Keyboards &amp; Synths</h3><p>Weighted stage pianos and layered synth patches.</p><span class="cx-go">Browse <i class="fa-solid fa-arrow-right"></i></span></div>
+          </a>
+          <a href="./products.html" class="cx-card reveal" data-cat="percussion">
+            <img src="../assets/m19.webp" alt="Drum kit" loading="lazy">
+            <div class="cx-overlay"><span class="cx-count">70+ items</span><h3>Drums &amp; Percussion</h3><p>Acoustic kits, e-drums, cymbals and hardware.</p><span class="cx-go">Browse <i class="fa-solid fa-arrow-right"></i></span></div>
+          </a>
+          <a href="./products.html" class="cx-card reveal" data-cat="studio">
+            <img src="../assets/m20.webp" alt="Studio microphone" loading="lazy">
+            <div class="cx-overlay"><span class="cx-count">110+ items</span><h3>Studio Gear</h3><p>Condenser mics, interfaces and monitors.</p><span class="cx-go">Browse <i class="fa-solid fa-arrow-right"></i></span></div>
+          </a>
+          <a href="./products.html" class="cx-card reveal" data-cat="strings">
+            <img src="../assets/m21.webp" alt="Violin" loading="lazy">
+            <div class="cx-overlay"><span class="cx-count">45+ items</span><h3>Orchestral Strings</h3><p>Violins, violas and cellos for every level.</p><span class="cx-go">Browse <i class="fa-solid fa-arrow-right"></i></span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SPOTLIGHT -->
+    <section class="section cx-spot">
+      <div class="container cx-spot-grid">
+        <div class="reveal">
+          <span class="badge badge-accent">Category Spotlight</span>
+          <h2>Start Your Journey: Beginner Bundles</h2>
+          <p>Guitar, keyboard or drum pad with stand, cables and lessons included. Everything you need to play on day one, at one clear price.</p>
+          <ul class="cx-ticks">
+            <li><i class="fa-solid fa-circle-check"></i> Set up and tuned before shipping</li>
+            <li><i class="fa-solid fa-circle-check"></i> Free online lessons for 3 months</li>
+            <li><i class="fa-solid fa-circle-check"></i> Upgrade credit within 60 days</li>
+          </ul>
+          <a href="./deals.html" class="btn btn-primary">See Bundles <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="cx-spot-tiles reveal">
+          <div><i class="fa-solid fa-guitar"></i><b>Guitar Pack</b><span>from $249</span></div>
+          <div><i class="fa-solid fa-sliders"></i><b>Keys Pack</b><span>from $329</span></div>
+          <div><i class="fa-solid fa-drum"></i><b>Drum Pack</b><span>from $399</span></div>
+          <div><i class="fa-solid fa-microphone-lines"></i><b>Home Studio</b><span>from $279</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. GENRES -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Find Your Style</span>
+          <h2 class="section-title">Browse by Genre</h2>
+          <p class="section-desc">Gear that suits the way you play.</p>
+        </div>
+        <div class="cx-genres">
+          <a href="./products.html" class="genre reveal"><i class="fa-solid fa-bolt"></i>Rock &amp; Metal</a>
+          <a href="./products.html" class="genre reveal"><i class="fa-solid fa-martini-glass-citrus"></i>Jazz &amp; Blues</a>
+          <a href="./products.html" class="genre reveal"><i class="fa-solid fa-headphones"></i>Electronic</a>
+          <a href="./products.html" class="genre reveal"><i class="fa-solid fa-tree"></i>Folk &amp; Country</a>
+          <a href="./products.html" class="genre reveal"><i class="fa-solid fa-landmark"></i>Classical</a>
+          <a href="./products.html" class="genre reveal"><i class="fa-solid fa-microphone"></i>Pop &amp; Vocals</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. BUYING GUIDE -->
+    <section class="section cx-guide">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Buying Guide</span>
+          <h2 class="section-title">Choose With Confidence</h2>
+        </div>
+        <div class="cx-steps">
+          <div class="step reveal"><i class="fa-solid fa-bullseye"></i><h4>Set your goal</h4><p>Practice, gigs or recording each call for different gear.</p></div>
+          <div class="step reveal"><i class="fa-solid fa-wallet"></i><h4>Fix a budget</h4><p>Quality starter models exist at every price point.</p></div>
+          <div class="step reveal"><i class="fa-solid fa-headphones-simple"></i><h4>Hear it first</h4><p>Audition tones in our virtual Sound Studio.</p></div>
+          <div class="step reveal"><i class="fa-solid fa-box-open"></i><h4>Order and play</h4><p>Express delivery and 30-day returns keep it risk-free.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. STATS -->
+    <section class="cx-stats">
+      <div class="container cx-stats-grid">
+        <div><b class="count" data-to="10000" data-suffix="+">0</b><span>Instruments in stock</span></div>
+        <div><b class="count" data-to="6">0</b><span>Core categories</span></div>
+        <div><b class="count" data-to="150" data-suffix="+">0</b><span>Trusted brands</span></div>
+        <div><b class="count" data-to="99" data-suffix="%">0</b><span>Happy musicians</span></div>
+      </div>
+    </section>
+
+    <!-- 8. FAQ -->
+    <section class="section">
+      <div class="container cx-faq">
+        <div class="section-header">
+          <span class="section-subtitle">Good to Know</span>
+          <h2 class="section-title">Category Questions</h2>
+        </div>
+        <details class="faq reveal" open><summary>Which category is best for a complete beginner?</summary><p>Acoustic guitars and digital keyboards are the easiest to start with. Our beginner bundles include everything you need.</p></details>
+        <details class="faq reveal"><summary>Can I try an instrument before buying?</summary><p>Use the Sound Studio to hear tones online, or visit our Salem store to play instruments in person.</p></details>
+        <details class="faq reveal"><summary>Do all instruments come with a warranty?</summary><p>Yes. Every instrument carries a 2-year warranty and a 30-day money-back guarantee.</p></details>
+        <details class="faq reveal"><summary>How fast is shipping?</summary><p>Express delivery is free above $99, and most orders leave our warehouse within 24 hours.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <!-- CTA -->
+  <section class="cta" id="cta">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-content">
+          <span class="cta-badge">Ready to Play?</span>
+          <h2>Can't Decide? Let Our Musicians Help</h2>
+          <p>Talk to real players who will match you with the right instrument, budget and skill level.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="./products.html" class="btn btn-light">Shop All Products <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="./soundstudio.html" class="btn btn-ghost">Try Sound Studio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo footer-logo"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a>
+          <p class="footer-text">Your one-stop shop for guitars, keyboards, drums and studio gear.</p>
+          <div class="social-links">
+            <a href="./404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="./404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="./404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="./404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Shop by Category</h4>
+          <ul class="footer-links">
+            <li><a href="./404.html">Guitars &amp; Basses</a></li>
+            <li><a href="./404.html">Keyboards &amp; Synths</a></li>
+            <li><a href="./404.html">Drums &amp; Percussion</a></li>
+            <li><a href="./404.html">Studio Gear</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./categories.html">Categories</a></li>
+            <li><a href="./products.html">Products</a></li>
+            <li><a href="./soundstudio.html">Sound Studio</a></li>
+            <li><a href="./deals.html">Deals</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Visit Us</h4>
+          <p class="footer-address">MMR Complex, Periyakollappatty<br>Chinna Thirupathi, Salem,<br>Tamil Nadu 636008<br>Open Mon&ndash;Sat, 8:00 AM &ndash; 6:00 PM</p>
+          <p class="footer-address"><a href="./404.html">+91 40 6677 8899</a><br><a href="./404.html">support@stackly.com</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 Stackly. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal-card">
+      <button class="modal-close" id="closeLoginModal">&times;</button>
+      <div class="modal-header"><h3 id="modalTitle">Welcome Back</h3><p id="modalSubtitle">Please log in to your Stackly account</p></div>
+      <form id="authForm" class="auth-form">
+        <div class="form-group" id="nameGroup" style="display:none;"><label for="fullName">Full Name</label><div class="input-icon-wrapper"><i class="fa-regular fa-user"></i><input type="text" id="fullName" placeholder="John Doe"></div></div>
+        <div class="form-group"><label for="emailInput">Email Address</label><div class="input-icon-wrapper"><i class="fa-regular fa-envelope"></i><input type="email" id="emailInput" placeholder="name@example.com" required></div></div>
+        <div class="form-group"><label for="passwordInput">Password</label><div class="input-icon-wrapper"><i class="fa-solid fa-lock"></i><input type="password" id="passwordInput" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required></div></div>
+        <button type="submit" class="btn btn-primary btn-block" id="authSubmitBtn">Log In</button>
+      </form>
+      <div class="modal-footer"><span id="toggleAuthText">Don't have an account?</span> <button type="button" id="toggleAuthMode" class="btn-link">Register Now</button></div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header"><h3>Your Cart (<span id="cartCount">0</span>)</h3><button class="close-cart" id="closeCart">&times;</button></div>
+    <div class="cart-items" id="cartItemsContainer"><div class="empty-cart-msg">Your shopping cart is currently empty.</div></div>
+    <div class="cart-footer"><div class="cart-total"><span>Total:</span><strong id="cartTotalPrice">$0.00</strong></div><a href="./404.html" class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</a>
+  </div>
+
+  <div class="toast" id="toast">Item added to cart!</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../js/script.js"></script>
+  <script src="../js/categories.js"></script>
+</body>
+</html>

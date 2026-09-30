@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - Stackly Musical Instruments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/products.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="../index.html" class="logo"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a>
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="./categories.html" class="nav-link">Categories</a></li>
+          <li class="nav-item"><a href="./products.html" class="nav-link active">Products</a></li>
+          <li class="nav-item"><a href="./soundstudio.html" class="nav-link">Sound Studio</a></li>
+          <li class="nav-item"><a href="./deals.html" class="nav-link">Deals</a></li>
+          <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="View Shopping Cart"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge" id="cartBadge">0</span></button>
+        <button class="btn btn-login" id="loginBtn"><i class="fa-regular fa-user"></i> <span>Login</span></button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <a href="../index.html" class="logo"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a>
+      <button class="close-drawer" id="closeDrawer">&times;</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="../index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="./categories.html" class="mobile-nav-link">Categories</a></li>
+      <li><a href="./products.html" class="mobile-nav-link active">Products</a></li>
+      <li><a href="./soundstudio.html" class="mobile-nav-link">Sound Studio</a></li>
+      <li><a href="./deals.html" class="mobile-nav-link">Deals</a></li>
+      <li><a href="./contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer"><button class="btn btn-primary btn-block" id="mobileLoginBtn">Login / Register</button></div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <main>
+    <!-- 1. HERO (dome) -->
+    <section class="pr-hero">
+      <i class="fa-solid fa-guitar pr-fl f1"></i><i class="fa-solid fa-drum pr-fl f2"></i><i class="fa-solid fa-headphones pr-fl f3"></i><i class="fa-solid fa-music pr-fl f4"></i>
+      <div class="container pr-hero-in">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Products</span></nav>
+        <h1>Gear Worth Making Noise About</h1>
+        <p>Search, sort and shop instruments chosen by working musicians.</p>
+        <label class="pr-search"><i class="fa-solid fa-magnifying-glass"></i><input type="search" id="prSearch" placeholder="Search guitars, drums, mics..." aria-label="Search products"></label>
+      </div>
+    </section>
+
+    <!-- 2. TOOLBAR -->
+    <section class="pr-bar">
+      <div class="container pr-bar-in">
+        <div class="pr-chips" id="prChips">
+          <button class="pchip active" data-f="all">All</button><button class="pchip" data-f="Guitars">Guitars</button><button class="pchip" data-f="Keyboards">Keys</button>
+          <button class="pchip" data-f="Drums">Drums</button><button class="pchip" data-f="Studio">Studio</button><button class="pchip" data-f="Orchestral">Orchestral</button>
+        </div>
+        <select id="prSort" aria-label="Sort products"><option value="def">Featured</option><option value="lo">Price: Low to High</option><option value="hi">Price: High to Low</option><option value="rate">Top Rated</option></select>
+      </div>
+    </section>
+
+    <!-- 3. GRID -->
+    <section class="section">
+      <div class="container">
+        <p class="pr-count"><b id="prCount">8</b> products</p>
+        <div class="pr-grid" id="prGrid"></div>
+        <div class="pr-empty" id="prEmpty" hidden><i class="fa-regular fa-face-frown"></i><p>No products match your search. Try another word.</p></div>
+      </div>
+    </section>
+
+    <!-- 4. EDITOR'S PICK -->
+    <section class="section pr-pick">
+      <div class="container pr-pick-grid">
+        <div class="pr-pick-img reveal"><img src="../assets/m25.webp" alt="Master custom drum kit" loading="lazy"><span class="pr-seal">Editor's Pick</span></div>
+        <div class="reveal">
+          <span class="badge badge-accent">Drummer approved</span>
+          <h2>Master Custom Drum Kit</h2>
+          <p>Birch shells, tuned heads and pro hardware in one kit. It records cleanly and stays punchy on stage.</p>
+          <ul class="pr-specs"><li><b>7</b> piece kit</li><li><b>Birch</b> shells</li><li><b>2 yr</b> warranty</li></ul>
+          <button class="btn btn-primary" id="pickAdd"><i class="fa-solid fa-bag-shopping"></i> Add to Cart - $1,599</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. BRANDS -->
+    <section class="pr-brands" aria-label="Brands">
+      <div class="pr-track"><span>Fender</span><span>Yamaha</span><span>Roland</span><span>Pearl</span><span>Shure</span><span>Gibson</span><span>Korg</span><span>Focusrite</span><span>Fender</span><span>Yamaha</span><span>Roland</span><span>Pearl</span><span>Shure</span><span>Gibson</span><span>Korg</span><span>Focusrite</span></div>
+    </section>
+
+    <!-- 6. WHY -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header"><span class="section-subtitle">Shop With Confidence</span><h2 class="section-title">Why Musicians Choose Stackly</h2></div>
+        <div class="pr-why">
+          <div class="reveal"><i class="fa-solid fa-sliders"></i><h4>Set up before shipping</h4><p>Every instrument is checked, tuned and adjusted by our techs.</p></div>
+          <div class="reveal"><i class="fa-solid fa-truck-fast"></i><h4>Free express delivery</h4><p>Free on orders above $99, dispatched within 24 hours.</p></div>
+          <div class="reveal"><i class="fa-solid fa-shield-halved"></i><h4>2-year warranty</h4><p>Full cover on every instrument we sell.</p></div>
+          <div class="reveal"><i class="fa-solid fa-rotate-left"></i><h4>30-day returns</h4><p>Not the right fit? Send it back for a refund.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. REVIEWS -->
+    <section class="section pr-rev">
+      <div class="container">
+        <div class="section-header"><span class="section-subtitle">Musician Feedback</span><h2 class="section-title">What Buyers Say</h2></div>
+        <div class="pr-rev-grid">
+          <figure class="reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>"Arrived perfectly set up. I played it straight out of the box."</blockquote><figcaption><span>SJ</span>Sarah Jenkins<small>Indie guitarist</small></figcaption></figure>
+          <figure class="reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><blockquote>"Fast shipping and honest advice. The keyboard sounds huge."</blockquote><figcaption><span>DM</span>David Miller<small>Music producer</small></figcaption></figure>
+          <figure class="reveal"><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div><blockquote>"The condenser mic cleaned up my home recordings overnight."</blockquote><figcaption><span>AR</span>Anita Rao<small>Podcaster</small></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. NEWSLETTER -->
+    <section class="section">
+      <div class="container">
+        <div class="pr-news reveal">
+          <div><h2>Get New Gear Alerts</h2><p>New arrivals and member-only deals, once a week.</p></div>
+          <form id="prNews"><input type="email" placeholder="you@example.com" required aria-label="Email"><button class="btn btn-light" type="submit">Subscribe</button></form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo footer-logo"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a>
+          <p class="footer-text">Your one-stop shop for guitars, keyboards, drums and studio gear.</p>
+          <div class="social-links">
+            <a href="./404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="./404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="./404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="./404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Shop by Category</h4>
+          <ul class="footer-links">
+            <li><a href="./404.html">Guitars &amp; Basses</a></li>
+            <li><a href="./404.html">Keyboards &amp; Synths</a></li>
+            <li><a href="./404.html">Drums &amp; Percussion</a></li>
+            <li><a href="./404.html">Studio Gear</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./categories.html">Categories</a></li>
+            <li><a href="./products.html">Products</a></li>
+            <li><a href="./soundstudio.html">Sound Studio</a></li>
+            <li><a href="./deals.html">Deals</a></li>
+             <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Visit Us</h4>
+          <p class="footer-address">MMR Complex, Periyakollappatty<br>Chinna Thirupathi, Salem,<br>Tamil Nadu 636008<br>Open Mon&ndash;Sat, 8:00 AM &ndash; 6:00 PM</p>
+          <p class="footer-address"><a href="./404.html">+91 40 6677 8899</a><br><a href="./404.html">support@stackly.com</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 Stackly. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal-card">
+      <button class="modal-close" id="closeLoginModal">&times;</button>
+      <div class="modal-header"><h3 id="modalTitle">Welcome Back</h3><p id="modalSubtitle">Please log in to your Stackly account</p></div>
+      <form id="authForm" class="auth-form">
+        <div class="form-group" id="nameGroup" style="display:none;"><label for="fullName">Full Name</label><div class="input-icon-wrapper"><i class="fa-regular fa-user"></i><input type="text" id="fullName" placeholder="John Doe"></div></div>
+        <div class="form-group"><label for="emailInput">Email Address</label><div class="input-icon-wrapper"><i class="fa-regular fa-envelope"></i><input type="email" id="emailInput" placeholder="name@example.com" required></div></div>
+        <div class="form-group"><label for="passwordInput">Password</label><div class="input-icon-wrapper"><i class="fa-solid fa-lock"></i><input type="password" id="passwordInput" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required></div></div>
+        <button type="submit" class="btn btn-primary btn-block" id="authSubmitBtn">Log In</button>
+      </form>
+      <div class="modal-footer"><span id="toggleAuthText">Don't have an account?</span> <button type="button" id="toggleAuthMode" class="btn-link">Register Now</button></div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header"><h3>Your Cart (<span id="cartCount">0</span>)</h3><button class="close-cart" id="closeCart">&times;</button></div>
+    <div class="cart-items" id="cartItemsContainer"><div class="empty-cart-msg">Your shopping cart is currently empty.</div></div>
+    <div class="cart-footer"><div class="cart-total"><span>Total:</span><strong id="cartTotalPrice">$0.00</strong></div><a href="./404.html" class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</a>
+  </div>
+
+  <!-- QUICK VIEW -->
+  <div class="modal-overlay" id="quickViewModal"><div class="modal-card quickview-card"><button class="modal-close" id="closeQuickView">&times;</button>
+    <div class="quickview-grid"><div class="quickview-img"><img id="qvImage" src="" alt="Product"></div>
+    <div class="quickview-info"><span class="badge" id="qvCategory">Instrument</span><h3 id="qvTitle">Product</h3><p class="qv-price" id="qvPrice">$0.00</p>
+    <p class="qv-desc">Premium build quality, precise tuning and a rich, resonant tone for live performance and recording.</p>
+    <button type="button" class="btn btn-primary btn-block" id="qvAddToCartBtn"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button></div></div></div></div>
+
+  <div class="toast" id="toast">Item added to cart!</div>
+
+  <script src="../js/products.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>

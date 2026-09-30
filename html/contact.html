@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Stackly Musical Instruments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/contact.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="../index.html" class="logo"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a>
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="./categories.html" class="nav-link">Categories</a></li>
+          <li class="nav-item"><a href="./products.html" class="nav-link">Products</a></li>
+          <li class="nav-item"><a href="./soundstudio.html" class="nav-link">Sound Studio</a></li>
+          <li class="nav-item"><a href="./deals.html" class="nav-link">Deals</a></li>
+          <li class="nav-item"><a href="./contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="View Shopping Cart"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge" id="cartBadge">0</span></button>
+        <button class="btn btn-login" id="loginBtn"><i class="fa-regular fa-user"></i> <span>Login</span></button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <a href="../index.html" class="logo"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a>
+      <button class="close-drawer" id="closeDrawer">&times;</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="../index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="./categories.html" class="mobile-nav-link">Categories</a></li>
+      <li><a href="./products.html" class="mobile-nav-link">Products</a></li>
+      <li><a href="./soundstudio.html" class="mobile-nav-link">Sound Studio</a></li>
+      <li><a href="./deals.html" class="mobile-nav-link">Deals</a></li>
+      <li><a href="./contact.html" class="mobile-nav-link active">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer"><button class="btn btn-primary btn-block" id="mobileLoginBtn">Login / Register</button></div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <main>
+    <!-- 1. HERO -->
+    <section class="ct-hero">
+      <div class="vinyl" aria-hidden="true"></div>
+      <i class="fa-solid fa-music ct-fl f1" aria-hidden="true"></i><i class="fa-solid fa-guitar ct-fl f2" aria-hidden="true"></i><i class="fa-solid fa-headphones ct-fl f3" aria-hidden="true"></i><i class="fa-solid fa-drum ct-fl f4" aria-hidden="true"></i>
+      <div class="container ct-hero-in">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Contact</span></nav>
+        <span class="ct-pill">We Reply Within 24 Hours</span>
+        <h1>Let's Talk <em>Music</em></h1>
+        <p>Questions about an instrument, an order, a repair or lessons? Our team of musicians is happy to help.</p>
+        <div class="ct-actions"><a href="#ctForm" class="btn btn-light">Send a Message <i class="fa-solid fa-arrow-down"></i></a><a href="tel:+914066778899" class="btn ct-ghost"><i class="fa-solid fa-phone"></i> Call the Store</a></div>
+        <div class="eq" id="eq" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- 2. CONTACT INFO CARDS -->
+    <section class="section ct-info-sec">
+      <div class="container">
+        <div class="ct-info">
+          <a class="ct-card rv" href="tel:+914066778899"><span class="ic"><i class="fa-solid fa-phone-volume"></i></span><h3>Call Us</h3><p>+91 40 6677 8899</p><small>Mon&ndash;Sat, 8 AM &ndash; 6 PM</small></a>
+          <a class="ct-card rv" href="mailto:support@stackly.com"><span class="ic"><i class="fa-regular fa-envelope"></i></span><h3>Email Us</h3><p>support@stackly.com</p><small>Replies within 24 hours</small></a>
+          <a class="ct-card rv" href="#map"><span class="ic"><i class="fa-solid fa-location-dot"></i></span><h3>Visit The Store</h3><p>Periyakollappatty, Salem</p><small>Tamil Nadu 636008</small></a>
+          <a class="ct-card rv" href="#map"><span class="ic"><i class="fa-regular fa-clock"></i></span><h3>Store Hours</h3><p>Mon&ndash;Sat, 8 AM &ndash; 6 PM</p><small id="openNow" class="open-pill">Checking...</small></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FORM + SIDE PANEL -->
+    <section class="section ct-form-sec">
+      <div class="container">
+        <div class="section-header"><span class="section-subtitle">Get In Touch</span><h2 class="section-title">Send Us a Message</h2><p class="section-desc">Fields marked with * are required.</p></div>
+        <div class="ct-wrap">
+          <div class="ct-formcard rv">
+            <form id="ctForm" novalidate>
+              <div class="f-row">
+                <div class="field" data-field="name"><label for="name">Full Name *</label><input id="name" name="name" type="text" autocomplete="name" placeholder="John Doe" required><span class="err-msg" aria-live="polite"></span></div>
+                <div class="field" data-field="email"><label for="email">Email Address *</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required><span class="err-msg" aria-live="polite"></span></div>
+              </div>
+              <div class="f-row">
+                <div class="field" data-field="phone"><label for="phone">Phone Number *</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210" required><span class="err-msg" aria-live="polite"></span></div>
+                <div class="field" data-field="subject"><label for="subject">Topic *</label>
+                  <select id="subject" name="subject" required>
+                    <option value="">Choose a topic</option>
+                    <option>Product enquiry</option><option>Order or delivery support</option><option>Repairs &amp; servicing</option><option>Music lessons</option><option>Rentals</option><option>Bulk / band orders</option><option>Something else</option>
+                  </select><span class="err-msg" aria-live="polite"></span></div>
+              </div>
+              <div class="field" data-field="message"><label for="message">Your Message *</label><textarea id="message" name="message" rows="5" maxlength="500" placeholder="Tell us what you are looking for..." required></textarea><div class="msg-foot"><span class="err-msg" aria-live="polite"></span><small id="count">0 / 500</small></div></div>
+              <div class="field check" data-field="consent"><label class="chk"><input type="checkbox" name="consent" required> <span>I agree to be contacted about my enquiry. *</span></label><span class="err-msg" aria-live="polite"></span></div>
+              <button type="submit" class="btn btn-primary btn-block" id="ctSubmit"><i class="fa-solid fa-paper-plane"></i> <span>Send Message</span></button>
+            </form>
+            <div class="ct-ok" id="ctOk" hidden><i class="fa-solid fa-circle-check"></i><h3>Message sent!</h3><p>Thank you. Our team will get back to you within 24 hours.</p><button type="button" class="btn btn-primary" id="ctAgain">Send Another</button></div>
+          </div>
+          <aside class="ct-side rv">
+            <h3>Talk To The Right Team</h3>
+            <ul>
+              <li><i class="fa-solid fa-guitar"></i><div><b>Sales</b><span>Help choosing your next instrument</span></div></li>
+              <li><i class="fa-solid fa-truck-fast"></i><div><b>Orders &amp; Delivery</b><span>Tracking, returns and warranty</span></div></li>
+              <li><i class="fa-solid fa-screwdriver-wrench"></i><div><b>Repairs</b><span>Setups, restringing and servicing</span></div></li>
+              <li><i class="fa-solid fa-graduation-cap"></i><div><b>Lessons</b><span>Guitar, keys, drums and vocals</span></div></li>
+            </ul>
+            <div class="ct-avg"><i class="fa-solid fa-bolt"></i> Average reply time: <b>under 4 hours</b></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MAP -->
+    <section class="section ct-map-sec" id="map">
+      <div class="container">
+        <div class="section-header"><span class="section-subtitle">Find Us</span><h2 class="section-title">Visit Our Store in Salem</h2><p class="section-desc">Try instruments in person. Our staff will help you find the right sound.</p></div>
+        <div class="map-wrap rv">
+          <iframe title="Stackly store location on Google Maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.1616097152896!2d78.1739798!3d11.682956599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babefef7fd970bb%3A0xe11aef1a71994f9!2sStackly!5e0!3m2!1sen!2sin!4v1790755129318!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <div class="map-badge"><i class="fa-solid fa-location-dot"></i><div><b>Stackly</b><span>MMR Complex, Periyakollappatty,<br>Chinna Thirupathi, Salem 636008</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SERVICES -->
+    <section class="section ct-serv-sec">
+      <div class="container">
+        <div class="section-header"><span class="section-subtitle">Beyond The Shop</span><h2 class="section-title">How We Can Help</h2></div>
+        <div class="ct-serv">
+          <div class="sv rv"><i class="fa-solid fa-screwdriver-wrench"></i><h3>Repairs &amp; Setup</h3><p>Restringing, fret work, tuning and full servicing by trained technicians.</p></div>
+          <div class="sv rv"><i class="fa-solid fa-graduation-cap"></i><h3>Music Lessons</h3><p>One-to-one classes for beginners and improvers, in store or online.</p></div>
+          <div class="sv rv"><i class="fa-solid fa-box-open"></i><h3>Instrument Rentals</h3><p>Rent by the week or month before you decide to buy.</p></div>
+          <div class="sv rv"><i class="fa-solid fa-sliders"></i><h3>Studio Consulting</h3><p>Advice on mics, interfaces and monitors for your home studio.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FAQ -->
+    <section class="section ct-faq-sec">
+      <div class="container dl-faq">
+        <div class="section-header"><span class="section-subtitle">Quick Answers</span><h2 class="section-title">Frequently Asked Questions</h2></div>
+        <details class="faq rv" open><summary>How soon will I hear back?</summary><p>We reply to every message within 24 hours, usually much sooner during store hours.</p></details>
+        <details class="faq rv"><summary>Can I book a repair or lesson through this form?</summary><p>Yes. Choose "Repairs &amp; servicing" or "Music lessons" as the topic and tell us your instrument.</p></details>
+        <details class="faq rv"><summary>Do you ship outside Tamil Nadu?</summary><p>We deliver across India. Orders above $99 ship free with express delivery.</p></details>
+        <details class="faq rv"><summary>What is your return policy?</summary><p>All instruments come with 30-day returns and a 2-year warranty.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <!-- CTA -->
+  <section class="cta" id="cta">
+    <div class="container"><div class="cta-inner">
+      <div class="cta-content"><span class="cta-badge">Stay In Tune</span><h2>Get News &amp; Offers First</h2><p>New arrivals and flash deals, straight to your inbox.</p></div>
+      <form class="dl-form" id="ctNews"><input type="email" placeholder="you@example.com" required aria-label="Email"><button class="btn btn-light" type="submit">Subscribe</button></form>
+    </div></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo footer-logo"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a>
+          <p class="footer-text">Your one-stop shop for guitars, keyboards, drums and studio gear.</p>
+          <div class="social-links">
+            <a href="./404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="./404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="./404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="./404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Shop by Category</h4>
+          <ul class="footer-links">
+            <li><a href="./404.html">Guitars &amp; Basses</a></li>
+            <li><a href="./404.html">Keyboards &amp; Synths</a></li>
+            <li><a href="./404.html">Drums &amp; Percussion</a></li>
+            <li><a href="./404.html">Studio Gear</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./categories.html">Categories</a></li>
+            <li><a href="./products.html">Products</a></li>
+            <li><a href="./soundstudio.html">Sound Studio</a></li>
+            <li><a href="./deals.html">Deals</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Visit Us</h4>
+          <p class="footer-address">MMR Complex, Periyakollappatty<br>Chinna Thirupathi, Salem,<br>Tamil Nadu 636008<br>Open Mon&ndash;Sat, 8:00 AM &ndash; 6:00 PM</p>
+          <p class="footer-address"><a href="./404.html">+91 40 6677 8899</a><br><a href="./404.html">support@stackly.com</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 Stackly. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal-card">
+      <button class="modal-close" id="closeLoginModal">&times;</button>
+      <div class="modal-header"><h3 id="modalTitle">Welcome Back</h3><p id="modalSubtitle">Please log in to your Stackly account</p></div>
+      <form id="authForm" class="auth-form">
+        <div class="form-group" id="nameGroup" style="display:none;"><label for="fullName">Full Name</label><div class="input-icon-wrapper"><i class="fa-regular fa-user"></i><input type="text" id="fullName" placeholder="John Doe"></div></div>
+        <div class="form-group"><label for="emailInput">Email Address</label><div class="input-icon-wrapper"><i class="fa-regular fa-envelope"></i><input type="email" id="emailInput" placeholder="name@example.com" required></div></div>
+        <div class="form-group"><label for="passwordInput">Password</label><div class="input-icon-wrapper"><i class="fa-solid fa-lock"></i><input type="password" id="passwordInput" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required></div></div>
+        <button type="submit" class="btn btn-primary btn-block" id="authSubmitBtn">Log In</button>
+      </form>
+      <div class="modal-footer"><span id="toggleAuthText">Don't have an account?</span> <button type="button" id="toggleAuthMode" class="btn-link">Register Now</button></div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header"><h3>Your Cart (<span id="cartCount">0</span>)</h3><button class="close-cart" id="closeCart">&times;</button></div>
+    <div class="cart-items" id="cartItemsContainer"><div class="empty-cart-msg">Your shopping cart is currently empty.</div></div>
+    <div class="cart-footer"><div class="cart-total"><span>Total:</span><strong id="cartTotalPrice">$0.00</strong></div><a href="./404.html" class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</a></div>
+  </div>
+
+  <div class="toast" id="toast">Item added to cart!</div>
+
+  <script src="../js/contact.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>

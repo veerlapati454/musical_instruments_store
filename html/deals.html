@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deals - Stackly Musical Instruments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/deals.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="../index.html" class="logo"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a>
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="./categories.html" class="nav-link">Categories</a></li>
+          <li class="nav-item"><a href="./products.html" class="nav-link">Products</a></li>
+          <li class="nav-item"><a href="./soundstudio.html" class="nav-link">Sound Studio</a></li>
+          <li class="nav-item"><a href="./deals.html" class="nav-link active">Deals</a></li>
+          <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="View Shopping Cart"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge" id="cartBadge">0</span></button>
+        <button class="btn btn-login" id="loginBtn"><i class="fa-regular fa-user"></i> <span>Login</span></button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <a href="../index.html" class="logo"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a>
+      <button class="close-drawer" id="closeDrawer">&times;</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="../index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="./categories.html" class="mobile-nav-link">Categories</a></li>
+      <li><a href="./products.html" class="mobile-nav-link">Products</a></li>
+      <li><a href="./soundstudio.html" class="mobile-nav-link">Sound Studio</a></li>
+      <li><a href="./deals.html" class="mobile-nav-link active">Deals</a></li>
+       <li><a href="./contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer"><button class="btn btn-primary btn-block" id="mobileLoginBtn">Login / Register</button></div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <main>
+    <!-- 1. HERO -->
+    <section class="dl-hero">
+      <div class="rays" aria-hidden="true"></div>
+      <i class="fa-solid fa-percent dl-fl f1"></i><i class="fa-solid fa-tags dl-fl f2"></i><i class="fa-solid fa-bolt dl-fl f3"></i><i class="fa-solid fa-gift dl-fl f4"></i>
+      <div class="container dl-hero-in">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a> <i class="fa-solid fa-chevron-right"></i> <span>Deals</span></nav>
+        <span class="dl-pill">Weekly Sale</span>
+        <h1>Up to <em class="num" data-to="35">0</em>% Off Instruments &amp; Studio Gear</h1>
+        <p>New offers every week. Grab them before the timer runs out.</p>
+        <div class="cd big" data-cd><div><b data-u="d">00</b><span>Days</span></div><div><b data-u="h">00</b><span>Hours</span></div><div><b data-u="m">00</b><span>Mins</span></div><div><b data-u="s">00</b><span>Secs</span></div></div>
+        <a href="#flash" class="btn btn-light">Shop Flash Deals <i class="fa-solid fa-arrow-down"></i></a>
+      </div>
+    </section>
+
+    <!-- 2. TICKER -->
+    <section class="dl-ticker" aria-label="Offers"><div class="dl-track"><span><i class="fa-solid fa-truck-fast"></i> Free express delivery over $99</span><span><i class="fa-solid fa-shield-halved"></i> 2-year warranty</span><span><i class="fa-solid fa-rotate-left"></i> 30-day returns</span><span><i class="fa-solid fa-tag"></i> Use code STACK10</span><span><i class="fa-solid fa-truck-fast"></i> Free express delivery over $99</span><span><i class="fa-solid fa-shield-halved"></i> 2-year warranty</span><span><i class="fa-solid fa-rotate-left"></i> 30-day returns</span><span><i class="fa-solid fa-tag"></i> Use code STACK10</span></div></section>
+
+    <!-- 3. DEAL OF THE WEEK -->
+    <section class="section">
+      <div class="container dl-dotw">
+        <div class="dotw-img rv"><span class="dotw-off">-33%</span><i class="fa-solid fa-headphones"></i></div>
+        <div class="rv">
+          <span class="badge badge-accent">Deal of the Week</span>
+          <h2>Aura Studio Wireless Headphones</h2>
+          <p>Flat, accurate sound for mixing and monitoring, with 40 hours of battery life.</p>
+          <p class="dotw-price">$199.00 <s>$299.00</s></p>
+          <div class="claimed"><div class="bar"><i id="claimBar"></i></div><small><b id="claimNum">0</b>% claimed</small></div>
+          <div class="cd sm" data-cd><div><b data-u="d">00</b><span>Days</span></div><div><b data-u="h">00</b><span>Hours</span></div><div><b data-u="m">00</b><span>Mins</span></div><div><b data-u="s">00</b><span>Secs</span></div></div>
+          <button class="btn btn-primary" id="dotwAdd"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FLASH DEALS -->
+    <section class="section dl-flash" id="flash">
+      <div class="container">
+        <div class="section-header"><span class="section-subtitle">Flash Deals</span><h2 class="section-title">Limited-Time Prices</h2><p class="section-desc">Every price here is lower than usual until the timer ends.</p></div>
+        <div class="dl-tabs" id="dTabs"><button class="dtab active" data-f="all">All</button><button class="dtab" data-f="Guitars">Guitars</button><button class="dtab" data-f="Keyboards">Keys</button><button class="dtab" data-f="Drums">Drums</button><button class="dtab" data-f="Studio">Studio</button><button class="dtab" data-f="Orchestral">Orchestral</button></div>
+        <div class="dl-grid" id="dlGrid"></div>
+      </div>
+    </section>
+
+    <!-- 5. COUPON FLIP CARDS -->
+    <section class="section dl-coupons">
+      <div class="container">
+        <div class="section-header"><span class="section-subtitle">Coupon Codes</span><h2 class="section-title">Scroll to Reveal Your Codes</h2><p class="section-desc">Enter a code at checkout. Tap Copy to save it.</p></div>
+        <div class="dc-grid">
+          <div class="dc"><div class="dc-in"><div class="dc-f"><b>10% OFF</b><h3>First Order</h3><p>Scroll to reveal the code</p></div><div class="dc-b"><h3>First Order</h3><p>10% off your first order, any instrument.</p><code>STACK10</code><button class="btn btn-light copy" data-code="STACK10"><i class="fa-regular fa-copy"></i> Copy code</button></div></div></div>
+          <div class="dc"><div class="dc-in"><div class="dc-f"><b>$50 OFF</b><h3>Big Gear</h3><p>Scroll to reveal the code</p></div><div class="dc-b"><h3>Big Gear</h3><p>$50 off orders above $1,000.</p><code>BIGGEAR50</code><button class="btn btn-light copy" data-code="BIGGEAR50"><i class="fa-regular fa-copy"></i> Copy code</button></div></div></div>
+          <div class="dc"><div class="dc-in"><div class="dc-f"><b>FREE</b><h3>Cables Pack</h3><p>Scroll to reveal the code</p></div><div class="dc-b"><h3>Cables Pack</h3><p>Free cable pack with any guitar.</p><code>CABLES</code><button class="btn btn-light copy" data-code="CABLES"><i class="fa-regular fa-copy"></i> Copy code</button></div></div></div>
+          <div class="dc"><div class="dc-in"><div class="dc-f"><b>15% OFF</b><h3>Studio Setup</h3><p>Scroll to reveal the code</p></div><div class="dc-b"><h3>Studio Setup</h3><p>15% off mics, interfaces and headphones.</p><code>STUDIO15</code><button class="btn btn-light copy" data-code="STUDIO15"><i class="fa-regular fa-copy"></i> Copy code</button></div></div></div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. BUNDLES -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header"><span class="section-subtitle">Bundles</span><h2 class="section-title">Buy Together, Save More</h2></div>
+        <div class="dl-bundles">
+          <div class="bundle"><span class="ribbon">Save $70</span><i class="fa-solid fa-guitar b-ico"></i><h3>Guitar Starter Pack</h3><ul><li><i class="fa-solid fa-check"></i>Acoustic guitar</li><li><i class="fa-solid fa-check"></i>Tuner, strap and picks</li><li><i class="fa-solid fa-check"></i>3 months of lessons</li></ul><p class="bp">$279 <s>$349</s></p><a href="./products.html" class="btn btn-primary btn-block">Shop Bundle</a></div>
+          <div class="bundle"><span class="ribbon">Save $130</span><i class="fa-solid fa-microphone-lines b-ico"></i><h3>Home Studio Pack</h3><ul><li><i class="fa-solid fa-check"></i>Condenser microphone</li><li><i class="fa-solid fa-check"></i>Audio interface</li><li><i class="fa-solid fa-check"></i>Headphones and stand</li></ul><p class="bp">$449 <s>$579</s></p><a href="./products.html" class="btn btn-primary btn-block">Shop Bundle</a></div>
+          <div class="bundle"><span class="ribbon">Save $350</span><i class="fa-solid fa-drum b-ico"></i><h3>Drummer Pack</h3><ul><li><i class="fa-solid fa-check"></i>7-piece kit</li><li><i class="fa-solid fa-check"></i>Cymbals and throne</li><li><i class="fa-solid fa-check"></i>Sticks and practice pads</li></ul><p class="bp">$1,749 <s>$2,099</s></p><a href="./products.html" class="btn btn-primary btn-block">Shop Bundle</a></div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. HOW IT WORKS -->
+    <section class="section dl-how">
+      <div class="container">
+        <div class="section-header"><span class="section-subtitle">Simple Steps</span><h2 class="section-title">How to Claim a Deal</h2></div>
+        <div class="dl-steps">
+          <div class="rv"><b>1</b><h4>Pick your gear</h4><p>Choose any item marked with a discount.</p></div>
+          <div class="rv"><b>2</b><h4>Add a code</h4><p>Enter a coupon at checkout for extra savings.</p></div>
+          <div class="rv"><b>3</b><h4>Get it fast</h4><p>Orders above $99 ship free and express.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FAQ -->
+    <section class="section">
+      <div class="container dl-faq">
+        <div class="section-header"><span class="section-subtitle">Good to Know</span><h2 class="section-title">Deal Questions</h2></div>
+        <details class="faq rv" open><summary>When do the deals end?</summary><p>Flash prices end when the timer reaches zero. New deals start every week.</p></details>
+        <details class="faq rv"><summary>Can I combine coupon codes?</summary><p>One code can be used per order. Bundle savings apply on top of it.</p></details>
+        <details class="faq rv"><summary>Are sale items covered by warranty?</summary><p>Yes. Every instrument keeps its 2-year warranty and 30-day returns.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <!-- CTA -->
+  <section class="cta" id="cta">
+    <div class="container"><div class="cta-inner">
+      <div class="cta-content"><span class="cta-badge">Never Miss a Deal</span><h2>Get Sale Alerts First</h2><p>Members hear about flash deals 24 hours early.</p></div>
+      <form class="dl-form" id="dlForm"><input type="email" placeholder="you@example.com" required aria-label="Email"><button class="btn btn-light" type="submit">Notify Me</button></form>
+    </div></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo footer-logo"><img src="../assets/stackly_logo.webp" alt="Stackly" class="logo-img"></a>
+          <p class="footer-text">Your one-stop shop for guitars, keyboards, drums and studio gear.</p>
+          <div class="social-links">
+            <a href="./404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="./404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="./404.html" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="./404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Shop by Category</h4>
+          <ul class="footer-links">
+            <li><a href="./404.html">Guitars &amp; Basses</a></li>
+            <li><a href="./404.html">Keyboards &amp; Synths</a></li>
+            <li><a href="./404.html">Drums &amp; Percussion</a></li>
+            <li><a href="./404.html">Studio Gear</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./categories.html">Categories</a></li>
+            <li><a href="./products.html">Products</a></li>
+            <li><a href="./soundstudio.html">Sound Studio</a></li>
+            <li><a href="./deals.html">Deals</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Visit Us</h4>
+          <p class="footer-address">MMR Complex, Periyakollappatty<br>Chinna Thirupathi, Salem,<br>Tamil Nadu 636008<br>Open Mon&ndash;Sat, 8:00 AM &ndash; 6:00 PM</p>
+          <p class="footer-address"><a href="./404.html">+91 40 6677 8899</a><br><a href="./404.html">support@stackly.com</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 Stackly. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal-card">
+      <button class="modal-close" id="closeLoginModal">&times;</button>
+      <div class="modal-header"><h3 id="modalTitle">Welcome Back</h3><p id="modalSubtitle">Please log in to your Stackly account</p></div>
+      <form id="authForm" class="auth-form">
+        <div class="form-group" id="nameGroup" style="display:none;"><label for="fullName">Full Name</label><div class="input-icon-wrapper"><i class="fa-regular fa-user"></i><input type="text" id="fullName" placeholder="John Doe"></div></div>
+        <div class="form-group"><label for="emailInput">Email Address</label><div class="input-icon-wrapper"><i class="fa-regular fa-envelope"></i><input type="email" id="emailInput" placeholder="name@example.com" required></div></div>
+        <div class="form-group"><label for="passwordInput">Password</label><div class="input-icon-wrapper"><i class="fa-solid fa-lock"></i><input type="password" id="passwordInput" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required></div></div>
+        <button type="submit" class="btn btn-primary btn-block" id="authSubmitBtn">Log In</button>
+      </form>
+      <div class="modal-footer"><span id="toggleAuthText">Don't have an account?</span> <button type="button" id="toggleAuthMode" class="btn-link">Register Now</button></div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header"><h3>Your Cart (<span id="cartCount">0</span>)</h3><button class="close-cart" id="closeCart">&times;</button></div>
+    <div class="cart-items" id="cartItemsContainer"><div class="empty-cart-msg">Your shopping cart is currently empty.</div></div>
+    <div class="cart-footer"><div class="cart-total"><span>Total:</span><strong id="cartTotalPrice">$0.00</strong></div><a href="./404.html" class="btn btn-primary btn-block" id="checkoutBtn">Proceed to Checkout</a>
+  </div>
+
+  <div class="toast" id="toast">Item added to cart!</div>
+
+  <script src="../js/deals.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>
